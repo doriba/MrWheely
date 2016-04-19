@@ -1,0 +1,19 @@
+application: mrwheely123eely
+version: 1
+runtime: php55
+api_version: 1
+threadsafe: yes
+
+handlers:
+# Serve images as static resources.
+- url: /(.+\.(ico|gif|png|jpg))$
+  static_files: \1
+  upload: .+\.(ico|gif|png|jpg)$
+  application_readable: true
+
+# Serve php scripts.
+- url: /
+  script: index.php
+
+- url: /(.+php)$
+  script: \1

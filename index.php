@@ -47,7 +47,7 @@
     #AutoCel{
       width: 215px;
       height: 125px;
-      margin: 1px;
+      margin: 5px;
     }
     #AutoCel p{
       margin-left: 5px;
@@ -78,9 +78,6 @@
       <option value="<?=$merk?>" <?= $selected ?>><?= $merk ?></option>
     <?php } ?>
   </select>
-<?
-  echo $_POST['SelectMerk'];
-?>
   <input type="text" name="BudgetInvoer" placeholder=" Budget" class="form-control" value="<?=$budget?>">
   <input type="submit" name="OkButton" value="Ok" class="btn btn-primary" style="margin-left: 10px">
 </form>
@@ -90,7 +87,7 @@ if(count($gefilterdeAutos) != 0){
   foreach($gefilterdeAutos as $auto){
     $prijs = number_format($auto->prijs, 0, '', '.');
 ?>
-    <div id="AutoCel">
+    <div id="AutoCel" class="col-xs-1">
       <img src="<?=$auto->plaatje?>">
       <p>&euro; <?= $auto->merk ?>,-
       <br><?= $prijs ?></p>
