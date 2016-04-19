@@ -68,7 +68,6 @@
   </style>
 </head>
 <body>
-<!-- Een formulier waarin de gebruiker kiest welk merk hij wilt en hoeveel hij maximaal uit wilt geven -->
 
 <form method="post">
   <select name="SelectMerk" class="form-control">
@@ -82,7 +81,7 @@
       <option value="<?=$merk?>" <?= $selected ?>><?= $merk ?></option>
     <?php } ?>
   </select>
-  <input type="text" name="BudgetInvoer" placeholder=" Budget" class="form-control" value="<?=$budget?>">
+  <input type="text" name="BudgetInvoer" placeholder=" Budget" class="form-control">
   <input type="submit" name="OkButton" value="Ok" class="btn btn-primary" style="margin-left: 10px">
 </form>
 
@@ -94,7 +93,7 @@ if(count($gefilterdeAutos) != 0){
     <div id="AutoCel" class="col-xs-1">
       <img src="<?=$auto->plaatje?>">
       <p>&euro; <?= $auto->merk ?>,-
-      <br><?= $prijs ?></p>
+      <br> <?= $prijs ?></p>
     </div>
 <?php
   }

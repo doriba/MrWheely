@@ -38,25 +38,29 @@ class AutoLijst{
   function checkAutos($merk, $budget){
     $gefilterdeAutos = array();
 
-  if($merk != "Alles"){
-    foreach($this->autos as $auto){
-      if($merk == $auto->merk && $auto->prijs <= $budget){
-        array_push($gefilterdeAutos, $auto);
-      }
+    if($budget == NULL){
+      $budget = 1000000;
     }
-  }
-  else{
-    if(!isset($budget) || $budget == NULL){
-      $gefilterdeAutos = $this->autos;
-    }
-    else{
+
+    if($merk != "Alles"){
       foreach($this->autos as $auto){
-        if($auto->prijs <= $budget){
+        if($merk == $auto->merk && $auto->prijs <= $budget){
           array_push($gefilterdeAutos, $auto);
         }
       }
     }
-  }
+    else{
+      if(!isset($budget) || $budget == NULL){
+        $gefilterdeAutos = $this->autos;
+      }
+      else{
+        foreach($this->autos as $auto){
+          if($auto->prijs <= $budget){
+            array_push($gefilterdeAutos, $auto);
+          }
+        }
+      }
+    }
     if(count($gefilterdeAutos) != 0){
       return $gefilterdeAutos;
     }
