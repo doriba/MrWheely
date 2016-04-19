@@ -1,7 +1,6 @@
 <?php
   include 'class.php';
 
-  error_reporting(E_ERROR|E_PARSE);
   $merken = array("Alles", "Bentley", "Bugatti", "Ferrari", "Lamborghini", "Tesla");
 
   $autos = array(
@@ -24,7 +23,12 @@
     new Auto("Tesla", 900000, "images/tesla1.jpg")
   );
 
-  $budget = $_POST['BudgetInvoer'];
+  if(isset($_POST['BudgetInvoer'])){
+    $budget = $_POST['BudgetInvoer'];
+  }
+  else{
+    $budget = 1000000;
+  }
 
   if(isset($_POST['SelectMerk'])){
     $merk = $_POST['SelectMerk'];

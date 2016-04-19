@@ -38,10 +38,6 @@ class AutoLijst{
   function checkAutos($merk, $budget){
     $gefilterdeAutos = array();
 
-    if($budget == NULL){
-      $budget = 1000000;
-    }
-
   if($merk != "Alles"){
     foreach($this->autos as $auto){
       if($merk == $auto->merk && $auto->prijs <= $budget){
